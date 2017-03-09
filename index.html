@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Which season are you?</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+
+#wrapper {
+	border-radius: 10px;
+	background-color: #ADD8E6;
+	margin: 20px;
+	padding: 20px;
+	font-family: Arial, sans-serif;
+}
+
+#inside {
+	border-radius: 10px;
+	background-color: #FFF; 
+	padding: 20px;
+	margin: 20px;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive, sans-serif;
+	font-size: 2.5em;
+	color: #4B855F;
+}
+
+p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+</style>
+
+</head>
+
+<body style="background-color: #EEE;">
+<div id="wrapper">
+<div id="inside">
+<div id="header">
+<img src="http://dyhanara.com/seasons/seasonsbox.png" width="100%" style="margin:auto;" alt="four seasons" />
+</div>
+<h1>Which season are you?</h1>
+
+<form id="form1">
+
+<p>1. <strong>Which is your favorite color, among these?</strong></p>
+<select id="color">
+ <option name="green" value="1">Green</option>
+ <option name="yellow" value="2">Yellow</option>
+ <option name="orange" value="3">Orange</option>
+ <option name="blue" value="4">Blue</option>
+ </select>
+ 
+<p>2. <strong>My favorite animal from this list is a...</strong></p>
+<select id="animal">
+ <option name="seal" value="2">Sea lion</option>
+ <option name="horse" value="3">Horse</option>
+ <option name="wolf" value="4">Wolf</option>
+ <option name="falcon" value="1">Falcon</option>
+ </select>
+ 
+ <p>3. <strong>Pick a fruit.</strong></p>
+<select id="fruit">
+ <option name="pumpkin" value="3">Pumpkin</option>
+ <option name="grapes" value="4">Grapes</option>
+ <option name="apple" value="1">Apple</option>
+ <option name="strawberry" value="2">Strawberry</option>
+ </select>
+ 
+ <p>4. <strong>What's your go-to wardrobe item?</strong></p>
+<select id="wardrobe">
+ <option name="scarf" value="4">Scarf</option>
+ <option name="shirt" value="1">Short-sleeve t-shirt</option>
+ <option name="flip" value="2">Flip-flops</option>
+ <option name="flannel" value="3">Flannel shirt</option>
+ </select>
+ 
+ <p>5. <strong>How about a dessert?</strong></p>
+<select id="dessert">
+ <option name="pie" value="3">Pumpkin pie</option>
+ <option name="cake" value="4">Chocolate cake</option>
+ <option name="salad" value="1">Fruit Salad</option>
+ <option name="icecream" value="2">Ice Cream</option>
+ </select>
+ 
+<p>6. <strong>On a cold, rainy day, I like to</strong></p>
+<input type="radio" name="rain" value="4" />drink hot chocolate by the fireplace.<br />
+<input type="radio" name="rain" value="1" />go outside and dance in the rain.<br />
+<input type="radio" name="rain" value="2" />stare longingly out the window until the sun comes out again.<br />
+<input type="radio" name="rain" value="3" />stay indoors and read a book.<br />
+
+<p>7. <strong>On a hot, sunny day, I like to</strong></p>
+<input type="radio" name="sun" value="4" />stay indoors and turn on the A/C.<br />
+<input type="radio" name="sun" value="1" />go for a short walk around the block.<br />
+<input type="radio" name="sun" value="2" />go swimming.<br />
+<input type="radio" name="sun" value="3" />stay indoors and shop online.<br />
+
+<p>8. <strong>When startled, I...</strong></p>
+<input type="radio" name="startled" value="4" />retreat to a safe space.<br />
+<input type="radio" name="startled" value="1" />move to higher ground.<br />
+<input type="radio" name="startled" value="2" />confront whatever startled me.<br />
+<input type="radio" name="startled" value="3" />scream.<br />
+
+<p>9. <strong>What are your weekend plans?</strong></p>
+<input type="radio" name="weekend" value="4" />Curl up in a blanket and watch Netflix.<br />
+<input type="radio" name="weekend" value="1" />Explore the nightlife downtown.<br />
+<input type="radio" name="weekend" value="2" />Pack a van and road trip with my friends.<br />
+<input type="radio" name="weekend" value="3" />Go to a movie theater.<br />
+
+<input type="submit" value="Submit">
+</form>
+
+<p><span id="result"></span></p>
+<p><span id="desc"></span></p>
+
+</div> <!-- Closes #inside -->
+</div> <!-- Closes #wrapper -->
+
+<script>
+document.getElementById("form1").onsubmit=function() {
+
+answer1 = parseInt(document.getElementById("color").value);
+// document.getElementById("q1").innerHTML = answer1; 
+
+answer2 = parseInt(document.getElementById("animal").value);
+// document.getElementById("q2").innerHTML = answer2; 
+
+answer3 = parseInt(document.getElementById("fruit").value);
+// document.getElementById("q3").innerHTML = answer3; 
+
+answer4 = parseInt(document.getElementById("wardrobe").value);
+// document.getElementById("q4").innerHTML = answer4; 
+
+answer5 = parseInt(document.getElementById("dessert").value);
+// document.getElementById("q5").innerHTML = answer5; 
+
+answer6 = parseInt(document.querySelector('input[name = "rain"]:checked').value);
+// document.getElementById("q6").innerHTML = answer6; 
+
+answer7 = parseInt(document.querySelector('input[name = "sun"]:checked').value);
+// document.getElementById("q7").innerHTML = answer7; 
+
+answer8 = parseInt(document.querySelector('input[name = "startled"]:checked').value);
+// document.getElementById("q8").innerHTML = answer8; 
+
+answer9 = parseInt(document.querySelector('input[name = "weekend"]:checked').value);
+// document.getElementById("q9").innerHTML = answer9; 
+
+total = answer1 + answer2 + answer3 + answer4 + answer5 + answer6 + answer7 + answer8 + answer9;
+
+// document.getElementById("sum").innerHTML = total;
+
+if (total < 10) {
+document.getElementById("result").innerHTML = "<h1>You are Spring!</h1>";
+document.getElementById("desc").innerHTML = "<p>You like to watch yourself and the people around you grow and change from year to year. When your friends are stressed out, you are a breath of fresh air to help them keep calm and carry on.</p>";
+}
+
+else if (total > 11 && total < 22) {
+document.getElementById("result").innerHTML = "<h1>You are Summer!</h1>";
+document.getElementById("desc").innerHTML = "<p>You are the life of the party, any time of year. Your bright smile and sunny outlook on life is admired by your peers.</p>";
+}
+
+else if (total > 23 && total < 30 ) {
+document.getElementById("result").innerHTML = "<h1>You are Autumn!</h1>";
+document.getElementById("desc").innerHTML = "<p>You are likely one of the most mature people in your circle of friends. Like the Autumn winds, you can go with the flow, but you can also stand strong like a maple tree. </p>";
+}
+
+else {
+document.getElementById("result").innerHTML = "<h1>You are Winter!</h1>";
+document.getElementById("desc").innerHTML = "<p>You like to keep to yourself. You are majestic and a force to be reckoned with.</p>";
+}
+
+return false; // required to not refresh the page; just leave this here
+}
+</script>
+
+</body>
+</html>
+
